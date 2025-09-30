@@ -337,13 +337,13 @@ jobs:
           [[ "${{ steps.test17.outputs.is_separate_deploy_repo }}" == "true" ]] || exit 1
 
       # Test 18: Full Git ref with trailing colon
-      - name: "Test @refs/heads/main:"
+      - name: Test @refs/heads/main:
         id: test18
         uses: ./
         with:
           source: "@refs/heads/main:"
 
-      - name: "Validate @refs/heads/main:"
+      - name: Validate @refs/heads/main:
         run: |
           echo "Test 18: @refs/heads/main:"
           echo "Ref: ${{ steps.test18.outputs.ref }}"
@@ -353,13 +353,13 @@ jobs:
           [[ "${{ steps.test18.outputs.path }}" == "." ]] || exit 1
 
       # Test 19: External repo with ref and trailing colon
-      - name: "Test Acme/configs@v1.2.3:"
+      - name: Test Acme/configs@v1.2.3:
         id: test19
         uses: ./
         with:
           source: "Acme/configs@v1.2.3:"
 
-      - name: "Validate Acme/configs@v1.2.3:"
+      - name: Validate Acme/configs@v1.2.3:
         run: |
           echo "Test 19: Acme/configs@v1.2.3:"
           echo "Ref: ${{ steps.test19.outputs.ref }}"
