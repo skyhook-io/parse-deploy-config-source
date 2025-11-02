@@ -1,6 +1,6 @@
 name: 'Parse Deploy Config Source'
 description: 'Parse deployment configuration source string into repo, ref, and path components'
-author: 'KoalaOps'
+author: 'Skyhook'
 
 branding:
   icon: 'git-branch'

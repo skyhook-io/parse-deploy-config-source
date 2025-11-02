@@ -9,10 +9,10 @@ Parses a deployment source string into repository, ref, and path components for 
 ## Usage
 
 ```yaml
-- uses: KoalaOps/parse-deploy-config-source@v1
+- uses: skyhook-io/parse-deploy-config-source@v1
   id: config
   with:
-    source: "KoalaOps/k8s-configs@main:services/backend"
+    source: "skyhook-io/k8s-configs@main:services/backend"
 
 # The actual deployment configs are expected at:
 # <path>/deploy/overlays/<environment>/
