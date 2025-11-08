@@ -1,4 +1,4 @@
-name: 'Parse Deploy Config Source'
+name: 'Skyhook Parse Deploy Config Source'
 description: 'Parse deployment configuration source string into repo, ref, and path components'
 author: 'Skyhook'
 
