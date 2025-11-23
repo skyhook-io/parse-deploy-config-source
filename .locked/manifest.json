@@ -1,0 +1,12 @@
+{
+  "dependencies": {},
+  "npm": null,
+  "runner_tools": "Existing runner binaries and consumer build inputs are not snapshotted.",
+  "snapshot": "759e87dd83d0e058da6e",
+  "source": {
+    "ref": "v1",
+    "repository": "skyhook-io/parse-deploy-config-source",
+    "sha": "b6c60385cc0089d4cd989f5233f50f6f23d2c8fa"
+  },
+  "tools": {}
+}
