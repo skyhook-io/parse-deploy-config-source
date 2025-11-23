@@ -74,13 +74,13 @@ runs:
           REPO="self"
           REF=""
           CONFIG_PATH="${BASH_REMATCH[1]}"
-        elif [[ "$SOURCE" =~ ^@([^:]+)(:.*)?$ ]]; then
-          # Just ref and optional path (e.g., "@main" or "@main:services/api" or "@main:")
+        elif [[ "$SOURCE" =~ ^@([^:]*)(:.*)?$ ]]; then
+          # Just ref and optional path (e.g., "@main" or "@main:services/api" or "@main:" or "@:path")
           REPO="self"
           REF="${BASH_REMATCH[1]}"
           CONFIG_PATH="${BASH_REMATCH[2]#:}"  # Remove : prefix
-        elif [[ "$SOURCE" =~ ^([^@:]+)(@[^:]+)?(:.*)?$ ]]; then
-          # Standard format with repo
+        elif [[ "$SOURCE" =~ ^([^@:]+)(@[^:]*)?(:.*)?$ ]]; then
+          # Standard format with repo (allows empty ref like "repo@:path")
           REPO="${BASH_REMATCH[1]}"
           REF="${BASH_REMATCH[2]#@}"   # Remove @ prefix
           CONFIG_PATH="${BASH_REMATCH[3]#:}"  # Remove : prefix

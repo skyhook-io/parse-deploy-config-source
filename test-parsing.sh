@@ -19,11 +19,11 @@ test_pattern() {
         REPO="self"
         REF=""
         CONFIG_PATH="${BASH_REMATCH[1]}"
-    elif [[ "$SOURCE" =~ ^@([^:]+)(:.*)?$ ]]; then
+    elif [[ "$SOURCE" =~ ^@([^:]*)(:.*)?$ ]]; then
         REPO="self"
         REF="${BASH_REMATCH[1]}"
         CONFIG_PATH="${BASH_REMATCH[2]#:}"
-    elif [[ "$SOURCE" =~ ^([^@:]+)(@[^:]+)?(:.*)?$ ]]; then
+    elif [[ "$SOURCE" =~ ^([^@:]+)(@[^:]*)?(:.*)?$ ]]; then
         REPO="${BASH_REMATCH[1]}"
         REF="${BASH_REMATCH[2]#@}"
         CONFIG_PATH="${BASH_REMATCH[3]#:}"
@@ -66,6 +66,11 @@ test_pattern "@refs/heads/main:" "SHOULD_PASS"
 test_pattern "self:" "SHOULD_PASS"
 test_pattern "Acme/configs:" "SHOULD_PASS"
 test_pattern "Acme/configs@main:" "SHOULD_PASS"
+
+# Empty ref patterns (missing ref value between @ and :)
+test_pattern "@:services/api" "SHOULD_PASS"
+test_pattern "acme-io/kubernetes@:platform-app" "SHOULD_PASS"
+test_pattern "Acme/configs@:" "SHOULD_PASS"
 
 # Other edge cases
 test_pattern ":" "SHOULD_PASS"
