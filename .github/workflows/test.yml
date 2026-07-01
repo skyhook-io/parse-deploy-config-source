@@ -13,7 +13,7 @@ jobs:
     name: Test parsing examples
     
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       
       # Test 1: Empty string (all defaults)
       - name: Test empty string
